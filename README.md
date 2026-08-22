@@ -14,10 +14,11 @@ A browser-based chess game built with HTML, CSS, and JavaScript.
 - Pawn promotion
 - King safety validation
 - Prevention of moves that leave your king in check
+- Backend game synchronization
 
 ## Current Scope
 
-The current version focuses primarily on implementing the core chess mechanics and preparing the project for multiplayer functionality and a backend.
+The current version focuses on implementing the core chess mechanics, validating game state on the backend, and synchronizing moves between the backend and frontend.
 
 The following chess rules are intentionally not implemented at this stage:
 
@@ -26,7 +27,7 @@ The following chess rules are intentionally not implemented at this stage:
 - Fifty move rule
 - Insufficient material draw detection
 
-These rules are intentionally deferred so that I focus on multiplayer functionality and backend development. They can be added in a future iteration as the game continues to evolve.
+These rules are intentionally deferred so that development can focus on the core game architecture and backend functionality. They can be added in a future iteration as the project continues to evolve.
 
 ## Future Improvements
 
@@ -40,7 +41,6 @@ Possible future improvements include:
 - Insufficient material detection
 - Improved draw handling
 - Multiplayer support
-- Backend game synchronization
 - Move history
 - Improved UI and animations
 
@@ -49,3 +49,10 @@ Possible future improvements include:
 The main goal of this project is not only to build a chess game, but also to use it as a foundation for learning game-state management, multiplayer communication, and backend development.
 
 The chess rules will continue to be improved as the project evolves.
+
+## v1.0
+This release represents v1.0 of the project.
+
+At this stage, the core chess mechanics are implemented, move validation and game-state logic are handled by the backend, and validated moves are synchronized with the frontend.
+
+Further development, including multiplayer onboarding and WebSocket-based communication, is planned for a future iteration.
