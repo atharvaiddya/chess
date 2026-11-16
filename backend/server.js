@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/game", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/Index.html"));
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.listen(3001, () => {

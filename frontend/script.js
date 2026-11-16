@@ -29,6 +29,8 @@ function render_block(){
     }
 }
 
+const player_color = new URLSearchParams(window.location.search).get("color");
+
 // whites turn first
 let turn = "white";
 let selected_square = null;
@@ -37,6 +39,7 @@ const white_pieces = ['♖','♘','♗','♕','♔','♙'];
 const black_pieces = ['♜','♞','♝','♛','♚','♟'];
 
 board.addEventListener("click", async (event) => {
+    if (player_color && turn !== player_color) return;
     if (!event.target.classList.contains("square")) return;
     if (promotion_pending) return;
     
@@ -172,3 +175,15 @@ async function send_move(from, to) {
     console.log("Backend response: ", result);
     return result;
 }
+
+
+setInterval(async () => {
+    if (selected_square !== null || promotion_pending) return;
+    const response = await fetch("/api/game");
+    const data = await response.json();
+    if (data.turn !== turn || JSON.stringify(data.pieces) !== JSON.stringify(pieces)) {
+        pieces = data.pieces;
+        turn = data.turn;
+        render_block();
+    }
+}, 500);
